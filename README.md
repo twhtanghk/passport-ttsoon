@@ -64,22 +64,12 @@ Configuration
 			done(err, user)
 ```    		
     		
-*   define web service api method with oauth2 bearer control in server
+*   define web api method with oauth2 login via authorization server
 
 ```
-	@get env.oauth2.authURL, passport.authenticate('provider', scope: env.oauth2.scope)
+	ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn
 	
-	@get env.oauth2.cbURL, passport.authenticate('provider', scope: env.oauth2.scope), ->
-		@response.redirect @session.returnTo
-	
+	@get path, ensureLoggedIn(authURL), ->
+		controller.File.open(@request, @response)
 ```        
 
-*   define the service request parameters clientID, authURL, and scope in client. See also [jso](https://github.com/andreassolberg/jso) for oauth2 client
-
-```
-    jso_configure 
-		oauth2:
-			client_id:		env.oauth2.clientID
-			authorization:	env.oauth2.authorizationURL
-			scope:			env.oauth2.scope
-```
