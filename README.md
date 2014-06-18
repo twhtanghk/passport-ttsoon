@@ -9,22 +9,25 @@ Configuration
 
 *   download server certificate into /usr/local/share/ca-certificates
 
-
+```
     openssl s_client -showcerts -connect ttsoon.com:443 |openssl x509 >/usr/local/share/ca-certificates/ttsoon.com.crt
+```
 
 *   update system trusted ca-certificates
 
-
+```
     update-ca-certificates
-    
+```
+
 *   install passport-ttsoon as nodejs module
     
-    
+```    
     npm install https://github.com/twhtanghk/passport-ttsoon.git
+```
 
 *   define the oauth2 strategy in server app.coffee
 
-
+```
     bearer = require 'passport-http-bearer'
     
     dir = '/etc/ssl/certs'
@@ -56,20 +59,21 @@ Configuration
     			
     		user = _.pick body.user, 'url', 'username', 'email'
     		done(err, user)
-    		
+```    		
     		
 *   define web service api method with oauth2 bearer control in server
 
-
+```
     @get '/api/xmpp/muc', bearer, ->
         # code to handle the api
-        
+```        
 
 *   define the service request parameters clientID, authURL, and scope in client. See also [jso](https://github.com/andreassolberg/jso) for oauth2 client
 
-
+```
     jso_configure 
 		oauth2:
 			client_id:		env.oauth2.clientID
 			authorization:	env.oauth2.authorizationURL
 			scope:			env.oauth2.scope
+```
