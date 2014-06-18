@@ -1,0 +1,19 @@
+{
+  "name": "passport-ttsoon",
+  "version": "0.0.0",
+  "description": "",
+  "main": "./lib/index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://whtang@osys.no-ip.org/srv/git/passport-ttsoon.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "dependencies": {
+    "passport-oauth": "~1.0.0",
+    "oauth": "~0.9.11"
+  }
+}
