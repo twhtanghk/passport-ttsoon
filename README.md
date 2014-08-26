@@ -22,7 +22,7 @@ Configuration
 *   install passport-ttsoon as nodejs module
     
 ```    
-    npm install https://github.com/twhtanghk/passport-ttsoon.git
+    npm install npm install https://github.com/twhtanghk/passport-ttsoon/archive/master.tar.gz
 ```
 
 *   define the oauth2 strategy in server app.coffee
